@@ -1,0 +1,17 @@
+<h1>All Cards</h1>
+ 
+<table>
+  <tr>
+    <th>Original text</th>
+    <th>Translated text</th>
+    <th>Review date</th>
+  </tr>
+ 
+  <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.original_text %></td>
+      <td><%= card.translated_text %></td>
+      <td><%= card.review_date.to_formatted_s(:rfc822) %></td>
+    </tr>
+  <% end %>
+</table>

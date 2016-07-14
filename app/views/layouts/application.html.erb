@@ -1,0 +1,22 @@
+<head>
+  <title>Флэшкарточкер</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "bootstrap", media: "all", "data-turbolinks-track" => true %>
+  <link rel="stylesheet" href="application.css">
+</head>
+
+<body>
+  <section id="container">
+
+    <header class="clearfix">
+      <h1>Флэшкарточкер</h1>
+      <ul class="navigation-links">
+        <li><%= link_to 'Все карточки', cards_path %></li>
+        <li><a href="#">Добавить карточку</a></li>
+      </ul>
+    </header>
+
+  <%= yield %>
+
+  </section>
+</body>
