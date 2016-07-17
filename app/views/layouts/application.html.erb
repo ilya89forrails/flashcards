@@ -1,7 +1,9 @@
 <head>
-  <title>Флэшкарточкер</title>
+  <title>Flashcarder</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag "bootstrap", media: "all", "data-turbolinks-track" => true %>
+
+
   <link rel="stylesheet" href="application.css">
 </head>
 
@@ -9,10 +11,10 @@
   <section id="container">
 
     <header class="clearfix">
-      <h1>Флэшкарточкер</h1>
+      <h1>Flashcarder</h1>
       <ul class="navigation-links">
-        <li><%= link_to 'Все карточки', cards_path %></li>
-        <li><a href="#">Добавить карточку</a></li>
+        <li><%= link_to 'All cards', cards_path %></li>
+        <li><%= link_to 'Add card', new_card_path %></li>
       </ul>
     </header>
 
