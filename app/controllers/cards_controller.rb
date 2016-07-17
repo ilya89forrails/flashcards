@@ -5,15 +5,15 @@ class CardsController < ApplicationController
     @cards = Card.all
   end
 
-  def show
-    @card = Card.find(params[:id])
-  end
-
   def new
     @card = Card.new
   end
 
   def edit
+    @card = Card.find(params[:id])
+  end
+
+  def show
     @card = Card.find(params[:id])
   end
 
@@ -39,7 +39,3 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 end
-
-# <td><%= #card.original_text %></td>
-#     <td><%= #card.translated_text %></td>
-#     <td><%= #card.review_date.to_formatted_s(:rfc822) %></td>

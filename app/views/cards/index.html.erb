@@ -11,7 +11,8 @@
     <tr>
       <td><%= card.original_text %></td>
       <td><%= card.translated_text %></td>
-      <td><%= link_to "show this card", card_path(card), method: :show %></td>
+      <td><%= card.review_date.to_formatted_s(:rfc822) %></td>
+      <td><%= link_to 'Show', card_path(card) %></td>
     </tr>
   <% end %>
 </table>
