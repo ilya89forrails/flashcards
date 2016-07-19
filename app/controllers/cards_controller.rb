@@ -39,3 +39,5 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 end
+
+# проверка

@@ -48,3 +48,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'therubyracer'
 gem 'rubocop', '~> 0.41.2', require: false
 gem 'simple_form'
+gem 'nokogiri'
