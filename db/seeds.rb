@@ -15,7 +15,8 @@ def one_page(full_path)
   current_page.css('tr').each do |word|
     original_word = word.css('td.bigLetter').text
     translated_word = word.css('td')[2].text
-    Card.create(original_text: original_word, translated_text: translated_word, review_date: Date.today) unless translated_word.nil?
+    Card.create(original_text: original_word, translated_text: translated_word,
+                review_date: Date.today) unless translated_word.nil?
   end
 end
 
