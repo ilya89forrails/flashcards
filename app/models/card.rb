@@ -4,6 +4,20 @@ class Card < ApplicationRecord
 
   before_save :add_days, on: :create
 
+  scope :unreviewed, -> { where('review_date <= ?', Date.today) }
+
+  def self.get_random
+    offset(rand(unreviewed.count)).first
+  end
+
+  def self.check_answer(card, answer)
+    if card.original_text == answer
+      return true
+    else
+      return false
+    end
+  end
+
   protected
 
   def add_days
