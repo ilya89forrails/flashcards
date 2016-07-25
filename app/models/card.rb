@@ -10,14 +10,6 @@ class Card < ApplicationRecord
     offset(rand(unreviewed.count)).first
   end
 
-  def self.check_answer(card, answer)
-    if card.original_text == answer
-      return true
-    else
-      return false
-    end
-  end
-
   protected
 
   def add_days

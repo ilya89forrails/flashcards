@@ -1,10 +1,8 @@
-
 <p style="font-size: 22px;">
   World's best flashcards manager. Exactly.
 </p>
 <div>
-<b><font color="red"><%= flash[:incorrect] %></font>
-<b><font color="green"><%= flash[:correct] %></font>
+<b><font color="blue"><%= flash[:notice] %></font>
 <p>
 </div>
   <%= form_tag check_answer_path do %>
@@ -19,5 +17,4 @@
     <%= submit_tag "Check answer", method: 'check_answer' %>
   </div>
   <% end %>
-
-
+  
