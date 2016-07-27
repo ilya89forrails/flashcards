@@ -7,13 +7,13 @@ class Card < ApplicationRecord
   scope :unreviewed, -> { where('review_date <= ?', Date.today) }
 
   def self.get_random
-    offset(rand(unreviewed.count)).first
+    unreviewed.order('RANDOM()').first
   end
 
   protected
 
   def add_days
-    self.review_date = review_date + 3.days
+    self.review_date = Date.today + 3.days
   end
 
   def same_words
