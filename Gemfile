@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
@@ -47,3 +48,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'therubyracer'
 gem 'rubocop', '~> 0.41.2', require: false
+gem 'simple_form'
+gem 'nokogiri'
+gem 'interactor'
+gem 'interactor-rails'
