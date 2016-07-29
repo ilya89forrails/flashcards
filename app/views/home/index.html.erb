@@ -1,10 +1,20 @@
-  <section id="container">
-
-    <section>
-      <p style="font-size: 22px;">
-        Первый в мире удобный менеджер флеш-карточек. Именно так.
-      </p>
-    </section>
-
-  </section>
+<p style="font-size: 22px;">
+  World's best flashcards manager. Exactly.
+</p>
+<div>
+<b><font color="blue"><%= flash[:notice] %></font>
+<p>
+</div>
+  <%= form_tag check_answer_path do %>
+    <%= hidden_field_tag 'id', @card.id %>
+    <%= @card.original_text %>
+  <div>
+    <%= @card.translated_text %>
+  </div>
+  <p>
+  <div>
+    <%= text_field_tag 'answer', nil %>
+    <%= submit_tag "Check answer", method: 'check_answer' %>
+  </div>
+  <% end %>
   
