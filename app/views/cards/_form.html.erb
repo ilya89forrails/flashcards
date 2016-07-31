@@ -1,0 +1,11 @@
+<%= simple_form_for @card do |f| %>
+  <br>
+  	<%= f.label :original_text %>
+  	<p> <%= f.input :original_text, label: false %>
+  <br>
+  	<%= f.label :translated_text %>
+  	<p> <%= f.input :translated_text, label: false %>
+  <br>
+  <p> <%= f.button :submit %>
+  <p> <%= f.full_error :token %>
+<% end %>

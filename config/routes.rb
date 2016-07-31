@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :cards
+
+  post 'check_answer', to: 'home#check_answer'
 end
