@@ -8,7 +8,10 @@ class Card < ApplicationRecord
 
   def self.get_random
     unreviewed.order('RANDOM()').first
+<<<<<<< HEAD
     # order('RANDOM()').first
+=======
+>>>>>>> origin/master
   end
 
   protected
