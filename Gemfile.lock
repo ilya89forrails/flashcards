@@ -216,10 +216,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
-<<<<<<< HEAD
   factory_girl_rails
-=======
->>>>>>> origin/master
   interactor
   interactor-rails
   jbuilder (~> 2.5)
