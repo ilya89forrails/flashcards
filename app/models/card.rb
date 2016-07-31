@@ -4,11 +4,11 @@ class Card < ApplicationRecord
 
   before_save :add_days, on: :create
 
-  #scope :unreviewed, -> { where('review_date <= ?', Date.today) }
+  scope :unreviewed, -> { where('review_date <= ?', Date.today) }
 
   def self.get_random
-  #  unreviewed.order('RANDOM()').first
-  order('RANDOM()').first
+    unreviewed.order('RANDOM()').first
+    # order('RANDOM()').first
   end
 
   protected

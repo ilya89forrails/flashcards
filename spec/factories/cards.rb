@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 FactoryGirl.define do
   factory :card do
     original_text 'schwarz'
