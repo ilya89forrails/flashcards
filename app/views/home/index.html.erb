@@ -4,10 +4,7 @@
 <div>
 <b><font color="blue"><%= flash[:notice] %></font>
 <p>
-<<<<<<< HEAD
 <% if @card.present? %>
-=======
->>>>>>> origin/master
 </div>
   <%= form_tag check_answer_path do %>
     <%= hidden_field_tag 'id', @card.id %>
@@ -21,10 +18,8 @@
     <%= submit_tag "Check answer", method: 'check_answer' %>
   </div>
   <% end %>
-<<<<<<< HEAD
+
 <% else %>
 <p> No cards for today!
 <% end %> 
-=======
-  
->>>>>>> origin/master
+
