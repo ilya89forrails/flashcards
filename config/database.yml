@@ -2,16 +2,8 @@ development:
   adapter: postgresql
   encoding: unicode
   database: flashcards_development
-  pool: 5
-  host: localhost
-  username: <%= ENV['db_user'] %>
-  password: <%= ENV['db_password'] %>
 
 test:
   adapter: postgresql
   encoding: unicode
   database: flashcards_test
-  pool: 5
-  host: localhost
-  username: <%= ENV['db_user'] %>
-  password: <%= ENV['db_password'] %>
