@@ -2,16 +2,8 @@ development:
   adapter: postgresql
   encoding: unicode
   database: flashcards_development
-  pool: 5
-  host: localhost
-  username: ilya
-  password: Moon89
 
 test:
   adapter: postgresql
   encoding: unicode
   database: flashcards_test
-  pool: 5
-  host: localhost
-  username: ilya
-  password: Moon89
