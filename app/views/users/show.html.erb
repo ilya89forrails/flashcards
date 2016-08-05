@@ -1,0 +1,14 @@
+<h1><%= @user.email %></h1>
+<p>My cards:
+<% @user.cards.each do |card| %>
+    <tr>
+      <td><%= card.original_text %></td>
+      <td><%= card.translated_text %></td>
+      <td><%= card.review_date.to_formatted_s(:rfc822) %></td>
+      <td><%= link_to 'Show', card_path(card) %></td>
+    </tr>
+  <% end %>
+<p><%= link_to "Add new card", new_card_path(@user.id) %>
+<p><%= link_to "Edit account", edit_user_path(@user) %>
+<p><%= link_to "Delete account", user_path(@user), :method => :delete, :confirm => "Are you sure?" %>
+<p><%= link_to "Back to users list", users_path %>
