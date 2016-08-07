@@ -19,7 +19,8 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
-    @card.user_id = 1 #current_user.id
+    @card.user_id = current_user.id
+    @card.review_date = Date.today #+ 3.days
     if @card.save
       redirect_to user_path(current_user)
     else
@@ -39,7 +40,8 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
-private
+  private
+
   def card_params
     params.require(:card).permit(:original_text, :translated_text, :review_date)
   end

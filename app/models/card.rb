@@ -1,16 +1,15 @@
 class Card < ApplicationRecord
-  #validates :original_text, :translated_text, :review_date, presence: true
-  #validate :same_words, on: :create
-  #belongs_to :user
+  validates :original_text, :translated_text, :review_date, presence: true
+  # validate :same_words, on: :create
+  belongs_to :user, optional: true
 
-  #before_save :add_days, on: :create
+  before_save :add_days, on: :create
 
-  #scope :unreviewed, -> { where('review_date <= ?', Date.today) }
+  scope :unreviewed, -> { where('review_date <= ?', Date.today) }
 
   def self.get_random
-    order('RANDOM()').first
-   # unreviewed.order('RANDOM()').first
     # order('RANDOM()').first
+    unreviewed.order('RANDOM()').first
   end
 
   protected

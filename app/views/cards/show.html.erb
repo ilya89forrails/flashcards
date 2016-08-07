@@ -4,4 +4,4 @@
 <p>Review date: <%= @card.review_date %></p>
 <p><%= link_to "Edit", edit_card_path(@card) %>
 <p><%= link_to "Delete", card_path(@card), :method => :delete, :confirm => "Are you sure?" %>
-<p><%= link_to "Back to card list", cards_path %>
+<p><%= link_to "Back", user_path(current_user) %>
