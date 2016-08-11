@@ -22,7 +22,7 @@ class CardsController < ApplicationController
     @card.user_id = current_user.id
     @card.review_date = Date.today #+ 3.days
     if @card.save
-      redirect_to user_path(current_user)
+      redirect_to cards_path
     else
       render 'new'
     end
