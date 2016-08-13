@@ -16,6 +16,7 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
 require 'capybara/rspec'
 
 RSpec.configure do |config|
@@ -96,6 +97,4 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
-
-  #  config.include FactoryGirl::Syntax::Methods
 end
