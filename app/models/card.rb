@@ -1,6 +1,7 @@
 class Card < ApplicationRecord
   validates :original_text, :translated_text, :review_date, presence: true
   # validate :same_words, on: :create
+  mount_uploader :pic, PicUploader
   belongs_to :user, optional: true
 
   before_save :add_days, on: :create
@@ -15,7 +16,7 @@ class Card < ApplicationRecord
   protected
 
   def add_days
-    self.review_date = Date.today + 3.days
+    self.review_date = Date.today #+ 3.days
   end
 
   def same_words

@@ -8,7 +8,8 @@
 </div>
   <%= form_tag check_answer_path do %>
     <%= hidden_field_tag 'id', @card.id %>
-    <%= @card.original_text %>
+    <%= image_tag @card.pic_url(:thumb).to_s if @card.pic? %>
+  <p><%= @card.original_text %>
   <div>
     <%= @card.translated_text %>
   </div>
@@ -18,6 +19,9 @@
     <%= submit_tag "Check answer", method: 'check_answer' %>
   </div>
   <% end %>
+
 <% else %>
 <p> No cards for today!
 <% end %> 
+
+  
