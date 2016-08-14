@@ -8,9 +8,9 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+/public/uploads/*
 /log/*
 /tmp/*
-/public/uploads/*
 !/log/.keep
 !/tmp/.keep
 
