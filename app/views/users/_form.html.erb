@@ -1,0 +1,18 @@
+
+<%= simple_form_for @user do |f| %>
+
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.input :email, label: false %>
+</div>
+<div class="field">
+  <%= f.label :password %><br />
+  <%= f.password_field :password %>
+</div>
+<div class="field">
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %>
+</div>
+  <p> <%= f.button :submit, class: "btn btn-large btn-primary"%>
+  <p> <%= f.full_error :token %>
+<% end %>

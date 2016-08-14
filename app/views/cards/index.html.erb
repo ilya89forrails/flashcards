@@ -1,4 +1,4 @@
-<h1>All Cards</h1>
+<h1>My Cards</h1>
  
 <table>
   <tr>
@@ -7,7 +7,7 @@
     <th>Review date</th>
   </tr>
  
-  <% @cards.each do |card| %>
+  <% current_user.cards.each do |card| %>
     <tr>
       <td><%= card.original_text %></td>
       <td><%= card.translated_text %></td>
@@ -16,3 +16,4 @@
     </tr>
   <% end %>
 </table>
+<p><%= link_to "Add new card", new_card_path(current_user.id) %>
