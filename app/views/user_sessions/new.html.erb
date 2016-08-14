@@ -1,0 +1,19 @@
+<h1>Sign in</h1>
+
+<%= form_tag user_sessions_path, method: :post do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <br/>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <br/>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Login", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
+New user?
+<%= link_to 'Sign up now!', new_user_path %>

@@ -1,4 +1,4 @@
-<%= simple_form_for @card do |f| %>
+<%= simple_form_for @card, :html => {:multipart => true} do |f| %>
   <br>
   	<%= f.label :original_text %>
   	<p> <%= f.input :original_text, label: false %>
@@ -6,6 +6,10 @@
   	<%= f.label :translated_text %>
   	<p> <%= f.input :translated_text, label: false %>
   <br>
-  <p> <%= f.button :submit %>
-  <p> <%= f.full_error :token %>
+      Add picture: 
+      <%= f.file_field :pic %>
+  <br>     
+    <%= f.button :submit %>
+    <p> <%= f.full_error :token %>
+
 <% end %>
