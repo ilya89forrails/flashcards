@@ -12,9 +12,9 @@ describe 'home page specs', type: :feature do
   it 'checks equity of user answer and translated text' do
     card = FactoryGirl.create(:card, user_id: @user.id, review_date: Date.today)
     visit root_path
-    #fill_in('answer', with: 'schwarz')
-    #click_button 'Check answer'
-    #expect(page).to have_content 'You are right!'
+    # fill_in('answer', with: 'schwarz')
+    # click_button 'Check answer'
+    # expect(page).to have_content 'You are right!'
     expect(page).to have_content 'No cards for today!'
   end
 end

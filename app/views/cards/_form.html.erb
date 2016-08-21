@@ -6,6 +6,8 @@
   	<%= f.label :translated_text %>
   	<p> <%= f.input :translated_text, label: false %>
   <br>
+    <%= f.association :deck %>
+  <br>
       Add picture: 
       <%= f.file_field :pic %>
   <br>     
