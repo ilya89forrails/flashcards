@@ -4,11 +4,12 @@
 <div>
 <b><font color="blue"><%= flash[:notice] %></font>
 <p>
-<% if @card.present? %>
+<% if @card.present?  %>
 </div>
   <%= form_tag check_answer_path do %>
     <%= hidden_field_tag 'id', @card.id %>
-    <%= @card.original_text %>
+    <%= image_tag @card.pic_url(:thumb).to_s if @card.pic? %>
+  <p><%= @card.original_text %>
   <div>
     <%= @card.translated_text %>
   </div>
@@ -19,7 +20,8 @@
   </div>
   <% end %>
 
-<% else %>
+<% elsif current_user.present? %>
 <p> No cards for today!
 <% end %> 
 
+  
