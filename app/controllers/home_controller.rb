@@ -1,6 +1,12 @@
 class HomeController < ApplicationController
   def index
-    @card = current_user.cards.get_random if current_user
+    if current_user
+      if current_user.current_deck_id?
+        @card = current_user.cards.get_random_from_current_deck(current_user)
+      else
+        @card = current_user.cards.get_random
+      end
+    end
   end
 
   def check_answer

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :cards
+  resources :decks do
+    
+    put :make_current, on: :member
+  end
 
   resources :user_sessions, only: [:new, :create, :destroy]
 
