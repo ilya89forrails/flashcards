@@ -23,7 +23,7 @@ class Card < ApplicationRecord
   protected
 
   def add_days
-    self.review_date = Date.today + 3.days
+    self.review_date = Date.today #+ 3.days
   end
 
   def same_words
