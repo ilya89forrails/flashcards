@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
-  include CardsHelper
+
+  before_action :set_deck, only: [:edit, :show]
 
   def index
     @decks = current_user.decks.all
@@ -10,11 +11,9 @@ class DecksController < ApplicationController
   end
 
   def edit
-    @deck = current_user.decks.find(params[:id])
   end
 
   def show
-    @deck = current_user.decks.find(params[:id])
   end
 
   def create
@@ -46,6 +45,10 @@ class DecksController < ApplicationController
   end
 
   private
+
+  def set_deck
+    @deck = current_user.decks.find(params[:id])
+  end
 
   def card_params
     params.require(:deck).permit(:title, :user_id)
