@@ -1,9 +1,8 @@
 <%= simple_form_for @deck do |f| %>
   <br>
-  	<%= f.label :title %>
-  	<p> <%= f.input :title, label: false %>
+    <%= f.label :title %>
+    <p> <%= f.input :title, label: false %>
   <br>     
     <%= f.button :submit %>
     <p> <%= f.full_error :token %>
-
 <% end %>
