@@ -15,6 +15,6 @@ describe 'home page specs', type: :feature do
     # fill_in('answer', with: 'schwarz')
     # click_button 'Check answer'
     # expect(page).to have_content 'You are right!'
-    expect(page).to have_content 'No cards for today!'
+    expect(page).to have_content 'schwarz black'
   end
 end
