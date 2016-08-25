@@ -2,11 +2,11 @@
 <% @deck.cards.each do |card| %>
   <tr>
     <td><%= card.original_text %></td>
-    <td><%= link_to 'Show', card_path(card) %></td>
+    <td><%= link_to 'Show', deck_card_path(card.deck_id, card.id) %></td>
   </tr>
 <% end %>
 
 <p><%= link_to "Edit", edit_deck_path(@deck) %>
 <p><%= link_to "Delete", deck_path(@deck), :method => :delete, :confirm => "Are you sure?" %>
 <p><%= link_to "Back", decks_path %>
-<p><%= link_to "Add new card", new_card_path(current_user.id, @deck.id) %>
+<p><%= link_to "Add new card", new_deck_card_path(@deck.id) %>

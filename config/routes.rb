@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   delete 'oauth/:provider' => 'oauths#destroy', :as => :delete_oauth
 
   resources :users
-  resources :cards
   resources :decks do
+    resources :cards
     put :make_current, on: :member
   end
 
