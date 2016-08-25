@@ -1,4 +1,4 @@
-<%= simple_form_for @card, :html => {:multipart => true} do |f| %>
+<%= simple_form_for @card, url: deck_cards_path(@deck), :html => {:multipart => true} do |f| %>
   <br>
   	<%= f.label :original_text %>
   	<p> <%= f.input :original_text, label: false %>
@@ -6,7 +6,7 @@
   	<%= f.label :translated_text %>
   	<p> <%= f.input :translated_text, label: false %>
   <br>
-    <%= f.association :deck %>
+
   <br>
       Add picture: 
       <%= f.file_field :pic %>
@@ -15,3 +15,4 @@
     <p> <%= f.full_error :token %>
 
 <% end %>
+

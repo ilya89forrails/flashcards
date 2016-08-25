@@ -1,48 +1,54 @@
 class CardsController < ApplicationController
   include CardsHelper
 
+  before_action :set_deck
+  before_action :set_card, only: [:edit, :show, :update, :destroy]
+
   def index
-    @cards = Card.all
+    @cards = @deck.cards.all
   end
 
   def new
-    @card = Card.new
+    @card = @deck.cards.new
   end
 
   def edit
-    @card = Card.find(params[:id])
   end
 
   def show
-    @card = Card.find(params[:id])
   end
 
   def create
-    @card = Card.new(card_params)
-    @card.user_id = current_user.id
+    @card = @deck.cards.new(card_params)
     @card.review_date = Date.today #+ 3.days
     if @card.save
-      redirect_to cards_path
+      redirect_to deck_path(@deck)
     else
       render 'new'
     end
   end
 
   def update
-    @card = Card.find(params[:id])
     @card.update(card_params)
-    redirect_to card_path(@card)
+    redirect_to deck_path(@deck)
   end
 
   def destroy
-    @card = Card.find(params[:id])
     @card.destroy
-    redirect_to cards_path
+    redirect_to deck_path(@deck)
   end
 
   private
 
   def card_params
     params.require(:card).permit(:original_text, :translated_text, :review_date, :pic, :deck_id)
+  end
+
+  def set_deck
+    @deck = current_user.decks.find(params[:deck_id])
+  end
+
+  def set_card
+    @card = @deck.cards.find(params[:id])
   end
 end

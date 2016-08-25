@@ -12,8 +12,8 @@
       <td><%= card.original_text %></td>
       <td><%= card.translated_text %></td>
       <td><%= card.review_date.to_formatted_s(:rfc822) %></td>
-      <td><%= link_to 'Show', card_path(card) %></td>
+      <td><%= link_to 'Show', deck_cards_path(card) %></td>
     </tr>
   <% end %>
 </table>
-<p><%= link_to "Add new card", new_card_path(current_user.id) %>
+<p><%= link_to "Add new card", new_deck_card_path(current_user.id) %>
