@@ -7,10 +7,11 @@ describe 'home page specs', type: :feature do
     fill_in('email', with: 'user@server.com')
     fill_in('password', with: 'pass')
     click_button('Login')
+    @deck = FactoryGirl.create(:deck)
   end
 
   it 'checks equity of user answer and translated text' do
-    card = FactoryGirl.create(:card, user_id: @user.id, review_date: Date.today)
+    card = FactoryGirl.create(:card, user_id: @user.id, review_date: Date.today, deck_id: @deck.id)
     visit root_path
     # fill_in('answer', with: 'schwarz')
     # click_button 'Check answer'

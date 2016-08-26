@@ -1,5 +1,4 @@
 class DecksController < ApplicationController
-
   before_action :set_deck, only: [:edit, :show]
 
   def index
@@ -17,7 +16,7 @@ class DecksController < ApplicationController
   end
 
   def create
-    @deck = Deck.new(card_params)
+    @deck = Deck.new(deck_params)
     @deck.user_id = current_user.id
 
     if @deck.save
@@ -50,7 +49,7 @@ class DecksController < ApplicationController
     @deck = current_user.decks.find(params[:id])
   end
 
-  def card_params
+  def deck_params
     params.require(:deck).permit(:title, :user_id)
   end
 end

@@ -4,6 +4,6 @@
 <p>Translated text: <%= @card.translated_text %></p>
 <p>Review date: <%= @card.review_date %></p>
 <p><%= image_tag @card.pic_url(:thumb).to_s %>
-<p><%= link_to "Edit", edit_card_path(@card) %>
-<p><%= link_to "Delete", card_path(@card), :method => :delete, :confirm => "Are you sure?" %>
-<p><%= link_to "Back", cards_path %>
+<p><%= link_to "Edit", edit_deck_card_path(@card.deck_id) %>
+<p><%= link_to "Delete", deck_card_path(@card.deck_id), :method => :delete, :confirm => "Are you sure?" %>
+<p><%= link_to "Back", deck_path(@card.deck_id) %>
