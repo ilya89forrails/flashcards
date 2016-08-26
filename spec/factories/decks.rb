@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :deck do
-    title 'title'
+    title 'colors'
+    user_id 1
   end
 end

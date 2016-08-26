@@ -1,6 +1,6 @@
 class Card < ApplicationRecord
   validates :original_text, :translated_text, :review_date, :deck, presence: true
-  # validate :same_words, on: :create
+  validate :same_words, on: :create
   mount_uploader :pic, PicUploader
   belongs_to :user, optional: true
   belongs_to :deck
