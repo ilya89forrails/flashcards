@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_160_820_150_528) do
+ActiveRecord::Schema.define(version: 20_160_827_125_722) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20_160_820_150_528) do
     t.string   'original_text'
     t.string   'translated_text'
     t.date     'review_date'
-    t.datetime 'created_at',      null: false
-    t.datetime 'updated_at',      null: false
+    t.datetime 'created_at',                  null: false
+    t.datetime 'updated_at',                  null: false
     t.integer  'user_id'
     t.string   'pic'
     t.integer  'deck_id'
-    t.index ['deck_id'], name: 'index_cards_on_deck_id', using: :btree
+    t.integer  'rating', default: 1
   end
 
   create_table 'decks', force: :cascade do |t|
