@@ -30,13 +30,13 @@ class CheckAnswer
     case rating
     when 1..3
       12.hours.since
-    when 3..6
+    when 4..6
       3.days.since
-    when 6..9
+    when 7..9
       1.week.since
-    when 9..12
+    when 10..12
       2.week.since
-    when 12..15
+    when 13..15
       1.month.since
     else
       1.month.since
