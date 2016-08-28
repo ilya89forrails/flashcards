@@ -1,23 +1,24 @@
 class Card < ApplicationRecord
-  validates :original_text, :translated_text, :review_date, :deck, presence: true
+  validates :original_text, :translated_text, :review_date, :deck_id, :rating, presence: true
+  validates :rating, inclusion: { in: 1..15 }
   validate :same_words, on: :create
   mount_uploader :pic, PicUploader
   belongs_to :user, optional: true
   belongs_to :deck
 
-  before_save :add_days, on: :create
+  # before_save :add_days, on: :create
 
-  scope :unreviewed, -> { where('review_date <= ?', Date.today) }
-  scope :unreviewed_from_deck, -> (current_user) { where('review_date <= ? AND deck_id = ?', Date.today, current_user.current_deck_id) }
+  # scope :unreviewed, -> { where('review_date <= ?', Date.today) }
+  # scope :unreviewed_from_deck, -> (current_user) { where('review_date <= ? AND deck_id = ?', Date.today, current_user.current_deck_id) }
 
   def self.get_random
-    # order('RANDOM()').first
-    unreviewed.order('RANDOM()').first
+    order('RANDOM()').first
+    # unreviewed.order('RANDOM()').first
   end
 
-  def self.get_random_from_current_deck(current_user)
-    # order('RANDOM()').first
-    unreviewed_from_deck(current_user).order('RANDOM()').first
+  def self.get_random_from_current_deck(_current_user)
+    order('RANDOM()').first
+    # unreviewed_from_deck(current_user).order('RANDOM()').first
   end
 
   protected
