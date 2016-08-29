@@ -15,6 +15,18 @@
   </div>
   <p>
   <div>
+    <%= @card.rating %>
+  </div>
+  <p>
+  <div>
+    <%= @card.incorrect_count %>
+  </div>
+  <p>
+  <div>
+    <%= @card.review_date %>
+  </div>
+  <p>
+  <div>
     <%= text_field_tag 'answer', nil %>
     <%= submit_tag "Check answer", method: 'check_answer' %>
   </div>
