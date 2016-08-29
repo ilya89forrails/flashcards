@@ -25,7 +25,7 @@ describe Card do
   it 'Change rating after correct answer' do
     card = Card.new(original_text: 'schwarz', translated_text: 'black', review_date: Date.today, deck_id: @deck.id, rating: 1)
     interactor = CheckAnswer.call(card: card, answer: 'schwarz')
-    expect(card.rating).to eq(6)
+    expect(card.rating).to eq(2)
   end
 
   it 'drop rating after three incorrect answers in a row' do
