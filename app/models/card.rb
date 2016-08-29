@@ -1,6 +1,7 @@
 class Card < ApplicationRecord
   validates :original_text, :translated_text, :review_date, :deck_id, :rating, presence: true
-  validates :rating, inclusion: { in: 1..15 }
+  validates :rating, inclusion: { in: 1..5 }
+  validates :incorrect_count, inclusion: { in: 0..3 }
   validate :same_words, on: :create
   mount_uploader :pic, PicUploader
   belongs_to :user, optional: true

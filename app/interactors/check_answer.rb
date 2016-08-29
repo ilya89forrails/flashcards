@@ -13,30 +13,34 @@ class CheckAnswer
   private
 
   def correct_answer(card)
-    new_rating = ((card.rating.to_f / 3).ceil + 1) * 3.to_i
-    new_rating = 15 if new_rating > 15
-    context.card.update(rating: new_rating, review_date: leitner(new_rating))
+    rating = card.rating + 1
+    rating = 5 if rating > 5
+    context.card.update(incorrect_count: 0, rating: rating, review_date: leitner(rating))
     'You are right!'
   end
 
   def incorrect_answer(card)
-    new_rating = card.rating - 1
-    new_rating = 1 if new_rating % 3 == 0
-    context.card.update(rating: new_rating, review_date: leitner(new_rating))
+    incorrect_count = card.incorrect_count + 1
+    rating = card.rating
+    if incorrect_count == 3
+      incorrect_count = 0
+      rating = 1
+    end
+    context.card.update(incorrect_count: incorrect_count, rating: rating, review_date: leitner(rating))
     "Wrong! '#{card.translated_text}' was translated as '#{card.original_text}'"
   end
 
   def leitner(rating)
     case rating
-    when 1..3
+    when 1
       12.hours.since
-    when 4..6
+    when 2
       3.days.since
-    when 7..9
+    when 3
       1.week.since
-    when 10..12
+    when 4
       2.week.since
-    when 13..15
+    when 5
       1.month.since
     else
       1.month.since
