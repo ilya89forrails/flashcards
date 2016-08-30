@@ -4,8 +4,7 @@ class CheckAnswer
 
   def call
     if context.answer == context.card.original_text
-      correct_answer(context.card)
-      context.message = 'You are right!'
+      context.message = correct_answer(context.card)
     elsif mistype_answer(context.answer, context.card.original_text)
       correct_answer(context.card)
       context.message = "You are little misspelled. You answered #{context.answer},
@@ -21,6 +20,7 @@ class CheckAnswer
     rating = card.rating + 1
     rating = 5 if rating > 5
     context.card.update(incorrect_count: 0, rating: rating, review_date: leitner(rating))
+    'You are right!'
   end
 
   def incorrect_answer(card)
