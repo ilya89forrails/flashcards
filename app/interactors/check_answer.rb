@@ -6,7 +6,7 @@ class CheckAnswer
     if context.answer == context.card.original_text
       context.message = correct_answer(context.card)
       context.card.save
-    elsif levenshtein(context.answer, context.card.original_text) <= 2
+    elsif levenshtein(context.answer, context.card.original_text) <= acceptable_mistakes(context.card)
       context.message = correct_answer(context.card)
       context.message = "You are little misspelled. You answered #{context.answer},
                          and correct answer was #{context.card.original_text}"
@@ -56,5 +56,16 @@ class CheckAnswer
   def levenshtein(answer, original)
     dl = DamerauLevenshtein
     dl.distance(answer, original)
+  end
+
+  def acceptable_mistakes(card)
+    case card.original_text.length
+    when 1..4
+      0
+    when 5..7
+      1
+    else
+      2
+    end
   end
 end
