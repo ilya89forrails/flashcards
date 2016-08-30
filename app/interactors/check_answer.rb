@@ -5,12 +5,10 @@ class CheckAnswer
   def call
     if context.answer == context.card.original_text
       context.message = correct_answer(context.card)
-      context.card.save
-    elsif levenshtein(context.answer, context.card.original_text) <= acceptable_mistakes(context.card)
+    elsif mistype_answer(context.answer, context.card.original_text)
       context.message = correct_answer(context.card)
       context.message = "You are little misspelled. You answered #{context.answer},
                          and correct answer was #{context.card.original_text}"
-      context.card.save
     else
       context.message = incorrect_answer(context.card)
     end
@@ -58,8 +56,8 @@ class CheckAnswer
     dl.distance(answer, original)
   end
 
-  def acceptable_mistakes(card)
-    case card.original_text.length
+  def acceptable_mistakes(length)
+    case length
     when 1..4
       0
     when 5..7
@@ -67,5 +65,9 @@ class CheckAnswer
     else
       2
     end
+  end
+
+  def mistype_answer (answer, original)
+    levenshtein(answer, original) <= acceptable_mistakes(original.length)
   end
 end
