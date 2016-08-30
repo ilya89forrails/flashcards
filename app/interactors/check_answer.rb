@@ -1,16 +1,12 @@
 class CheckAnswer
   include Interactor
-  require "damerau-levenshtein"
+  require 'damerau-levenshtein'
 
   def call
     if context.answer == context.card.original_text
       context.message = correct_answer(context.card)
-      context.card.save
-    elsif levenshtein(context.answer, context.card.original_text) <=2
-      context.message = correct_answer(context.card)
-      context.message = "You are little misspelled. You answered #{context.answer}, 
-                         and correct answer was #{context.card.original_text}"
-      context.card.save   
+    elsif mistype_check(context.answer, context.card.original_text) 
+      context.message = mistype_answer(context.answer, context.card)
     else
       context.message = incorrect_answer(context.card)
     end
@@ -36,6 +32,11 @@ class CheckAnswer
     "Wrong! '#{card.translated_text}' was translated as '#{card.original_text}'"
   end
 
+  def mistype_answer (answer, card)
+    correct_answer(card)
+    "You are little misspelled. You answered #{answer}, and correct answer was #{card.original_text}"  
+  end
+
   def leitner(rating)
     case rating
     when 1
@@ -58,4 +59,18 @@ class CheckAnswer
     dl.distance(answer, original)
   end
 
+  def acceptable_mistakes(length)
+    case length
+    when 1..4
+      0
+    when 5..7
+      1
+    else
+      2
+    end
+  end
+ 
+  def mistype_check (answer, original)
+    levenshtein(answer, original) <= acceptable_mistakes(original.length)
+  end
 end
