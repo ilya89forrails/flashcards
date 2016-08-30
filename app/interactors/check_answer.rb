@@ -1,10 +1,16 @@
 class CheckAnswer
   include Interactor
+  require "damerau-levenshtein"
 
   def call
     if context.answer == context.card.original_text
       context.message = correct_answer(context.card)
       context.card.save
+    elsif levenshtein(context.answer, context.card.original_text) <=2
+      context.message = correct_answer(context.card)
+      context.message = "You are little misspelled. You answered #{context.answer}, 
+                         and correct answer was #{context.card.original_text}"
+      context.card.save   
     else
       context.message = incorrect_answer(context.card)
     end
@@ -46,4 +52,10 @@ class CheckAnswer
       1.month.since
     end
   end
+
+  def levenshtein(answer, original)
+    dl = DamerauLevenshtein
+    dl.distance(answer, original)
+  end
+
 end

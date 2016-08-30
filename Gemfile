@@ -59,3 +59,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'rails_12factor', group: :production
+gem 'damerau-levenshtein'
