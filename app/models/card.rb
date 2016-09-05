@@ -23,10 +23,11 @@ class Card < ApplicationRecord
   end
 
   def self.notify_user
-    where("review_date <=?", Time.now ).each do |card|
-      user = User.find(card.user_id)
-      CardsMailer.pending_cards_notification(user).deliver_now
-    end
+    CardsMailer.pending_cards_notification.deliver_now
+    #where("review_date <=?", Time.now ).each do |card|
+     # user = User.find(card.user_id)
+      
+    #end
   end
 
   protected
