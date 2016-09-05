@@ -22,6 +22,7 @@ class CardsController < ApplicationController
     @card = @deck.cards.new(card_params)
     @card.user_id = @deck.user_id
     @card.review_date = Date.today #+ 3.days
+    CardsMailer.pending_cards_notification.deliver_now
     if @card.save
       redirect_to deck_path(@deck)
     else
