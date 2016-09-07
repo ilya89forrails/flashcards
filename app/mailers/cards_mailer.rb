@@ -1,10 +1,9 @@
 class CardsMailer < ApplicationMailer
-	default from: "info@.flashcards.localhost" 
-	
-  def pending_cards_notification
-    #@user = user
-    @url = 'https://desolate-taiga-89778.herokuapp.com/'
-    url2 = 'ilya89forrails@gmail.com'
-    mail(to: url2, subject: 'hello everybody')
+	default from: "Flashcards" 
+
+  def pending_cards_notification(user)
+    @user = user
+    @url = @user.email
+    mail(to: @url, subject: 'Unreviewed cards!')
   end
 end
