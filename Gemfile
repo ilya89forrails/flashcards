@@ -60,3 +60,5 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'rails_12factor', group: :production
 gem 'damerau-levenshtein'
+gem 'whenever', require: false
+gem "letter_opener", group: :development

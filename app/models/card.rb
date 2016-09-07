@@ -22,6 +22,19 @@ class Card < ApplicationRecord
     # unreviewed_from_deck(current_user).order('RANDOM()').first
   end
 
+  def self.notify_user
+    users_list = []
+
+    where("review_date <=?", Time.now ).each do |card|
+      user = User.find(card.user_id)
+      users_list.push(user)
+    end
+
+    users_list.uniq.each do |user|
+      CardsMailer.pending_cards_notification(user).deliver_now
+    end
+  end
+
   protected
 
   def add_days
