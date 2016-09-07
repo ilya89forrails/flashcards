@@ -5,7 +5,7 @@ class CheckAnswer
   def call
     if context.answer == context.card.original_text
       context.message = correct_answer(context.card)
-    elsif mistype_check(context.answer, context.card.original_text) 
+    elsif mistype_check(context.answer, context.card.original_text)
       context.message = mistype_answer(context.answer, context.card)
     else
       context.message = incorrect_answer(context.card)
@@ -32,9 +32,9 @@ class CheckAnswer
     "Wrong! '#{card.translated_text}' was translated as '#{card.original_text}'"
   end
 
-  def mistype_answer (answer, card)
+  def mistype_answer(answer, card)
     correct_answer(card)
-    "You are little misspelled. You answered #{answer}, and correct answer was #{card.original_text}"  
+    "You are little misspelled. You answered #{answer}, and correct answer was #{card.original_text}"
   end
 
   def leitner(rating)
@@ -69,8 +69,8 @@ class CheckAnswer
       2
     end
   end
- 
-  def mistype_check (answer, original)
+
+  def mistype_check(answer, original)
     levenshtein(answer, original) <= acceptable_mistakes(original.length)
   end
 end

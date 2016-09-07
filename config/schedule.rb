@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 2.minutes do
-  runner 'Card.notify_user'
+every 1.day do
+  runner 'CardNotificationService.call'
 end

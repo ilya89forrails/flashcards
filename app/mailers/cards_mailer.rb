@@ -1,9 +1,9 @@
 class CardsMailer < ApplicationMailer
-	default from: "Flashcards" 
+  default from: 'Flashcards'
 
   def pending_cards_notification(user)
     @user = user
-    @url = @user.email
-    mail(to: @url, subject: 'Unreviewed cards!')
+    @email = @user.email
+    mail(to: @email, subject: 'Unreviewed cards!')
   end
 end
