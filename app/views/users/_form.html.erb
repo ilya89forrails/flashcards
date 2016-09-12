@@ -13,6 +13,10 @@
   <%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %>
 </div>
+<p>
+  <%= f.label I18n.t("user.locale") %><br>
+  <%= f.select :locale, I18n.available_locales, selected: 'en' %>
+</p>
   <p> <%= f.button :submit, class: "btn btn-large btn-primary"%>
   <p> <%= f.full_error :token %>
 <% end %>

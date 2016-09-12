@@ -1,0 +1,19 @@
+
+ru:
+  home:
+    title: "Флешкарточкер"
+    description: "Лучший в мире менеджер карточек. Именно так."
+    signin: "Войти"
+    signout: "Выйти"
+    signup: "Зарегистрироваться"
+    github: "Зарегистрироваться через GitHub"
+    language: "Язык"
+    account: "Аккаунт"
+  login:
+    sign_in: "Вход"
+    email: "Email"
+    password: "Пароль"
+    password_confirmation: "Подтверждение пароля"
+    login_btn: "Войти"
+    new_user: "Первый раз?"
+    sign_up_now: "Зарегистрируйся!"
