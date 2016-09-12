@@ -20,4 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home:
+    title: "Flashcards"
+    description: "World's best flashcards manager. Exactly."
+    sign_in: "Sign in"
+    sign_out: "Sign out"
+    sign_up: "Sign up"
+    github: "Login using GitHub"
+    language: "Language"
+    account: "My account"
+  login:
+    sign_in: "Sign in"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    login_btn: "Login"
+    new_user: "New user?"
+    sign_up_now: "Sign up now!"
