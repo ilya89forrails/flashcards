@@ -1,9 +1,9 @@
 <h1><%= @card.original_text %></h1>
 
-<p>Original text: <%= @card.original_text %></p>
-<p>Translated text: <%= @card.translated_text %></p>
-<p>Review date: <%= @card.review_date %></p>
+<p><%= t("card.original")%>: <%= @card.original_text %></p>
+<p><%= t("card.translated")%>: <%= @card.translated_text %></p>
+<p><%= t("card.review_date")%>: <%= @card.review_date %></p>
 <p><%= image_tag @card.pic_url(:thumb).to_s %>
-<p><%= link_to "Edit", edit_deck_card_path(@card.deck_id) %>
-<p><%= link_to "Delete", deck_card_path(@card.deck_id), :method => :delete, :confirm => "Are you sure?" %>
-<p><%= link_to "Back", deck_path(@card.deck_id) %>
+<p><%= link_to t("card.edit"), edit_deck_card_path(@card.deck_id) %>
+<p><%= link_to t("card.delete"), deck_card_path(@card.deck_id), :method => :delete, :confirm => "Are you sure?" %>
+<p><%= link_to t("card.back"), deck_path(@card.deck_id) %>

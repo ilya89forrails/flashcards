@@ -1,9 +1,9 @@
 <%= simple_form_for @card, url: deck_cards_path(@deck), :html => {:multipart => true} do |f| %>
   <br>
-  	<%= f.label :original_text %>
+  	<%= f.label t("card.original") %>
   	<p> <%= f.input :original_text, label: false %>
   <br>
-  	<%= f.label :translated_text %>
+  	<%= f.label t("card.translated") %>
   	<p> <%= f.input :translated_text, label: false %>
   <br>
 

@@ -20,15 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  home:
+  global:
     title: "Flashcards"
-    description: "World's best flashcards manager. Exactly."
     sign_in: "Sign in"
     sign_out: "Sign out"
-    sign_up: "Sign up"
     github: "Login using GitHub"
     language: "Language"
     account: "My account"
+    link_github: 'Link your GitHub account'
+    unlink_github: 'Unlink your GitHub account'
+
+  home:
+    description: "World's best flashcards manager. Exactly."
+    sign_up: "Sign up"
+
   login:
     sign_in: "Sign in"
     email: "Email"
@@ -37,3 +42,37 @@ en:
     login_btn: "Login"
     new_user: "New user?"
     sign_up_now: "Sign up now!"
+
+  user:
+    edit: "Edit account"
+    delete: "Delete account"
+    my_decks: "My decks"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    language: "Language"
+    update_btn: "Update"
+
+  deck:
+    title: "Title"
+    edit: "Edit"
+    my_decks: "My decks"
+    show: "Show"
+    make_current: "Make current"
+    add_new: "Add new deck"
+    new: "New deck"
+    back: "Back"
+    show: "Show deck"
+    delete: "Delete deck"
+
+  card:
+    original: "Original text"
+    translated: "Translated text"
+    edit: "Edit card"
+    show: "Show card"
+    add_new: "Add new card"
+    my_cards: "My cards"
+    review_date: "Review date"
+    new: "New card"
+    delete: "Delete card"
+    back: "Back"

@@ -1,10 +1,10 @@
-<h1>My Cards</h1>
+<h1><%= t("card.my_cards") %></h1>
  
 <table>
   <tr>
-    <th>Original text</th>
-    <th>Translated text</th>
-    <th>Review date</th>
+    <th><%= t("card.original")%></th>
+    <th><%= t("card.translated") %></th>
+    <th><%= t("card.review_date") %></th>
   </tr>
  
   <% current_user.cards.each do |card| %>
@@ -12,8 +12,8 @@
       <td><%= card.original_text %></td>
       <td><%= card.translated_text %></td>
       <td><%= card.review_date.to_formatted_s(:rfc822) %></td>
-      <td><%= link_to 'Show', deck_cards_path(card) %></td>
+      <td><%= link_to t("card.show"), deck_cards_path(card) %></td>
     </tr>
   <% end %>
 </table>
-<p><%= link_to "Add new card", new_deck_card_path(current_user.id) %>
+<p><%= link_to t("card.add_new"), new_deck_card_path(current_user.id) %>
