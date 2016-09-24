@@ -1,0 +1,58 @@
+
+ru:
+  global:
+    title: "Флешкарточкер"
+    sign_in: "Войти"
+    sign_out: "Выйти"
+    github: "Зарегистрироваться через GitHub"
+    language: "Язык"
+    account: "Аккаунт"
+    link_github: 'Link your GitHub account'
+    unlink_github: 'Unlink your GitHub account'
+
+  home:
+    description: "Лучший в мире менеджер карточек. Именно так."
+    sign_up: "Зарегистрироваться"
+
+  login:
+    sign_in: "Вход"
+    email: "Email"
+    password: "Пароль"
+    password_confirmation: "Подтверждение пароля"
+    login_btn: "Войти"
+    new_user: "Первый раз?"
+    sign_up_now: "Зарегистрируйся!"
+
+  user:
+    edit: "Редактировать аккаунт"
+    delete: "Удалить аккаунт"
+    my_decks: "Мои колоды"
+    email: "Email"
+    password: "Пароль"
+    password_confirmation: "Подтверждение пароля"
+    language: "Язык"
+    update_btn: "Обновить"
+
+  deck:
+    title: "Название"
+    edit: "Редактировать колоду"
+    my_decks: "Мои колоды"
+    show: "Показать колоду"
+    make_current: "Сделать текущей"
+    add_new: "Добавить колоду"
+    new: "Новая колода"
+    back: "Назад"
+    show: "Show deck"
+    delete: "Delete deck"
+
+  card:
+    original: "Оригинальный текст"
+    translated: "Перевод"
+    edit: "Редактировать карточку"
+    show: "Показать карточку"
+    add_new: "Добавить карточку"
+    my_cards: "Мои карточки"
+    review_date: "Дата проверки"
+    new: "Новая карточка"
+    delete: "Удалить карточку"
+    back: "Назад"

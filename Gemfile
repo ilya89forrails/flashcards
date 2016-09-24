@@ -62,3 +62,6 @@ gem 'rails_12factor', group: :production
 gem 'damerau-levenshtein'
 gem 'whenever', require: false
 gem 'letter_opener', group: :development
+gem 'http_accept_language'
+gem 'rollbar'
+gem 'newrelic_rpm'

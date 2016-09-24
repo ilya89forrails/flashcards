@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_160_829_102_357) do
+ActiveRecord::Schema.define(version: 20_160_918_121_741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -27,13 +27,15 @@ ActiveRecord::Schema.define(version: 20_160_829_102_357) do
     t.string   'original_text'
     t.string   'translated_text'
     t.date     'review_date'
-    t.datetime 'created_at',                  null: false
-    t.datetime 'updated_at',                  null: false
+    t.datetime 'created_at',                    null: false
+    t.datetime 'updated_at',                    null: false
     t.integer  'user_id'
     t.string   'pic'
     t.integer  'deck_id'
     t.integer  'rating',          default: 1
     t.integer  'incorrect_count', default: 0
+    t.integer  'repetition',      default: 1
+    t.float    'efactor',         default: 2.5
   end
 
   create_table 'decks', force: :cascade do |t|
@@ -45,11 +47,12 @@ ActiveRecord::Schema.define(version: 20_160_829_102_357) do
 
   create_table 'users', force: :cascade do |t|
     t.string   'email'
-    t.datetime 'created_at',       null: false
-    t.datetime 'updated_at',       null: false
+    t.datetime 'created_at',                      null: false
+    t.datetime 'updated_at',                      null: false
     t.string   'crypted_password'
     t.string   'salt'
     t.integer  'current_deck_id'
+    t.string   'locale', default: 'en'
     t.index ['email'], name: 'index_users_on_email', unique: true, using: :btree
   end
 end

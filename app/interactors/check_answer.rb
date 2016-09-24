@@ -1,6 +1,7 @@
 class CheckAnswer
   include Interactor
   require 'damerau-levenshtein'
+  require_relative '../services/supermemo.rb'
 
   def call
     if context.answer == context.card.original_text
@@ -14,44 +15,26 @@ class CheckAnswer
 
   private
 
+  def check(card, quality)
+    repetition = card.repetition + 1
+    new_efactor = Supermemo.set_efactor(card.efactor, quality)
+    new_review_date = Supermemo.recalculate_date(card)
+    context.card.update(repetition: repetition, efactor: new_efactor, review_date: new_review_date)
+  end
+
   def correct_answer(card)
-    rating = card.rating + 1
-    rating = 5 if rating > 5
-    context.card.update(incorrect_count: 0, rating: rating, review_date: leitner(rating))
+    check(card, 5.0)
     'You are right!'
   end
 
   def incorrect_answer(card)
-    incorrect_count = card.incorrect_count + 1
-    rating = card.rating
-    if incorrect_count == 3
-      incorrect_count = 0
-      rating = 1
-    end
-    context.card.update(incorrect_count: incorrect_count, rating: rating, review_date: leitner(rating))
+    check(card, 0.0)
     "Wrong! '#{card.translated_text}' was translated as '#{card.original_text}'"
   end
 
   def mistype_answer(answer, card)
-    correct_answer(card)
+    check(card, 3.0)
     "You are little misspelled. You answered #{answer}, and correct answer was #{card.original_text}"
-  end
-
-  def leitner(rating)
-    case rating
-    when 1
-      12.hours.since
-    when 2
-      3.days.since
-    when 3
-      1.week.since
-    when 4
-      2.week.since
-    when 5
-      1.month.since
-    else
-      1.month.since
-    end
   end
 
   def levenshtein(answer, original)

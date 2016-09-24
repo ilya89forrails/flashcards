@@ -1,4 +1,4 @@
-<h1>My Decks</h1>
+<h1><%= t("deck.my_decks")%></h1>
 <p>
 
 <table>
@@ -9,9 +9,9 @@
   <% current_user.decks.each do |deck| %>
     <tr>
       <td><%= deck.title %></td>
-      <td><%= link_to 'Show', deck_path(deck) %></td>
-      <td><%= link_to(' make corrent', make_current_deck_path(deck), method: :put) %></td>
+      <td><%= link_to t("deck.show"), deck_path(deck) %></td>
+      <td><%= link_to(t("deck.make_current"), make_current_deck_path(deck), method: :put) %></td>
     </tr>
   <% end %>
 </table>
-<p><%= link_to "Add new deck", new_deck_path(current_user.id) %>
+<p><%= link_to t("deck.add_new"), new_deck_path(current_user.id, locale: params[:locale]) %>

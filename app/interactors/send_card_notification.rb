@@ -1,4 +1,4 @@
-class CardNotificationService
+class SendCardNotification
   include Interactor
 
   def call
