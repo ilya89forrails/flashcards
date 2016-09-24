@@ -137,6 +137,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    newrelic_rpm (3.16.2.321)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -191,6 +192,8 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     ref (2.0.0)
+    rollbar (2.13.1)
+      multi_json
     rspec-core (3.5.1)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -286,11 +289,13 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.0.5)
   mini_magick
+  newrelic_rpm
   nokogiri
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)
   rails_12factor
+  rollbar
   rspec-rails (~> 3.5)
   rubocop (~> 0.41.2)
   sass-rails (~> 5.0)
