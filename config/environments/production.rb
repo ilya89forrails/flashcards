@@ -84,9 +84,10 @@ Rails.application.configure do
   
   config.action_mailer.smtp_settings = {
     port: '587',
-    address: "smtp.mailgun.org",
-    user_name: Rails.application.secrets.mailgun_user,
-    password: Rails.application.secrets.mailgun_pass
+    address: "smtp.mandrillapp.com",
+    user_name: Rails.application.secrets.mandrill_user,
+    password: Rails.application.secrets.mandrill_api,
+    domain: 'ilya89forrails.ru'
   }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

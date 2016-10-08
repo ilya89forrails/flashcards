@@ -20,6 +20,7 @@ class CardsController < ApplicationController
 
   def create
     @card = @deck.cards.new(card_params)
+    CardsMailer.pending_cards_notification(current_user).deliver_now
     @card.user_id = @deck.user_id
     @card.review_date = Date.today #+ 3.days
     if @card.save
