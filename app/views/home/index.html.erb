@@ -2,38 +2,15 @@
   <%= t("home.description") %>
 </p>
 <div>
+<div>
 <b><font color="blue"><%= flash[:notice] %></font>
 <p>
 <% if @card.present?  %>
+<div id="trainer">
+  <%= render partial: 'form' %>
 </div>
-  <%= form_tag check_answer_path do %>
-    <%= hidden_field_tag 'id', @card.id %>
-    <%= image_tag @card.pic_url(:thumb).to_s if @card.pic? %>
-  <p><%= @card.original_text %>
-  <div>
-    <%= @card.translated_text %>
-  </div>
-  <p>
-  <div>
-    <%= @card.repetition %>
-  </div>
-  <p>
-  <div>
-    <%= @card.efactor %>
-  </div>
-  <p>
-  <div>
-    <%= @card.review_date %>
-  </div>
-  <p>
-  <div>
-    <%= text_field_tag 'answer', nil %>
-    <%= submit_tag "Check answer", method: 'check_answer' %>
-  </div>
-  <% end %>
-
 <% elsif current_user.present? %>
 <p> No cards for today!
 <% end %> 
+</div>
 
-  

@@ -12,7 +12,13 @@ class HomeController < ApplicationController
   def check_answer
     @card = Card.find(params[:id])
     result = CheckAnswer.call(card: @card, answer: params[:answer])
-    flash[:notice] = result.message
+
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
     redirect_to root_path
   end
 end
