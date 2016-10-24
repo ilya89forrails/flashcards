@@ -1,4 +1,4 @@
-class OauthsController < ApplicationController
+class Dashboard::OauthsController < Dashboard::ApplicationController
   # skip_before_filter :require_login
 
   def oauth

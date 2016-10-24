@@ -1,0 +1,22 @@
+
+<%= simple_form_for @user do |f| %>
+
+<div class="field">
+  <%= f.label t("user.email") %><br />
+  <%= f.input :email, label: false %>
+</div>
+<div class="field">
+  <%= f.label t("user.password") %><br />
+  <%= f.password_field :password %>
+</div>
+<div class="field">
+  <%= f.label t("user.password_confirmation") %><br />
+  <%= f.password_field :password_confirmation %>
+</div>
+<p>
+  <%= f.label t("user.language") %><br>
+  <%= f.select :locale, I18n.available_locales, selected: 'en' %>
+</p>
+  <p> <%= f.button :submit, class: "btn btn-large btn-primary"%>
+  <p> <%= f.full_error :token %>
+<% end %>

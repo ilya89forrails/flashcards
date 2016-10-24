@@ -21,13 +21,9 @@
           <%= link_to t("global.sign_out"), logout_path %>
           <%= link_to t("global.account"), user_path(current_user) %>
           <% if current_user.has_linked_github? %>
-            <%= link_to t("global.unlink_github"), delete_oauth_path('github'), method: :delete %>
-          <% else %>
-            <%= link_to t("global.link_github"), auth_at_provider_path(:provider => :github) %>
           <% end %>
         <% else %>
         <li><%= link_to t("global.sign_in"), login_path %></li>
-        <li><%= link_to t("global.github"), auth_at_provider_path(provider: :github) %></li>
         <% end %>
       </ul>
     </header>

@@ -81,10 +81,10 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
   config.action_mailer.delivery_method = :smtp
-  
+
   config.action_mailer.smtp_settings = {
     port: '587',
-    address: "smtp.mandrillapp.com",
+    address: 'smtp.mandrillapp.com',
     user_name: Rails.application.secrets.mandrill_user,
     password: Rails.application.secrets.mandrill_api,
     domain: 'ilya89forrails.ru'

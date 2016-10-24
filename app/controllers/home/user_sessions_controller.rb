@@ -1,4 +1,4 @@
-class UserSessionsController < ApplicationController
+class Home::UserSessionsController < Home::ApplicationController
   def new
   end
 
@@ -9,10 +9,5 @@ class UserSessionsController < ApplicationController
       flash.now[:alert] = 'Login failed'
       render action: 'new'
     end
-  end
-
-  def destroy
-    logout
-    redirect_to(root_path, notice: 'Logged out!')
   end
 end

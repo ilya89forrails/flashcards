@@ -1,4 +1,4 @@
-class CardsController < ApplicationController
+class Dashboard::CardsController < Dashboard::ApplicationController
   include CardsHelper
 
   before_action :set_deck

@@ -1,26 +1,27 @@
 Rails.application.routes.draw do
   scope ':locale', locale: /#{I18n.available_locales.join("|")}/ do
-    root 'home#index'
+    root 'home/home#index'
 
-    post 'oauth/callback' => 'oauths#callback'
-    get 'oauth/callback' => 'oauths#callback'
-    get 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
-    delete 'oauth/:provider' => 'oauths#destroy', :as => :delete_oauth
-
-    resources :users
-    resources :decks do
-      resources :cards
-      put :make_current, on: :member
+    scope '/home', module: 'home' do
+      resources :user_sessions, only: [:new, :create]
+      resources :users, only: [:new, :create]
+      get 'login' => 'user_sessions#new'
     end
 
-    resources :user_sessions, only: [:new, :create, :destroy]
+    scope '/dashboard', module: 'dashboard' do
+      resources :users
+      resources :decks do
+        resources :cards
+        put :make_current, on: :member
+      end
 
-    get 'login'  => 'user_sessions#new'
-    get 'logout' => 'user_sessions#destroy'
+      resources :user_sessions, only: [:destroy]
 
-    post 'check_answer', to: 'home#check_answer'
+      get 'logout' => 'user_sessions#destroy'
+
+      post 'check_answer', to: 'home#check_answer'
+    end
   end
-
   get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
   get '', to: redirect("/#{I18n.default_locale}")
 end

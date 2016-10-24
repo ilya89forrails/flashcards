@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class Dashboard::HomeController < Dashboard::ApplicationController
   def index
     if current_user
       if current_user.current_deck_id?
@@ -12,13 +12,10 @@ class HomeController < ApplicationController
   def check_answer
     @card = Card.find(params[:id])
     result = CheckAnswer.call(card: @card, answer: params[:answer])
-
-
     respond_to do |format|
       format.html
       format.js
     end
-
     redirect_to root_path
   end
 end
