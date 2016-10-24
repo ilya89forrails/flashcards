@@ -1,0 +1,16 @@
+<p style="font-size: 22px;">
+  <%= t("home.description") %>
+</p>
+<div>
+<div>
+<b><font color="blue"><%= flash[:notice] %></font>
+<p>
+<% if @card.present?  %>
+<div id="trainer">
+  <%= render partial: 'form' %>
+</div>
+<% elsif current_user.present? %>
+<p> No cards for today!
+<% end %> 
+</div>
+
